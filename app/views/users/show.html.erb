@@ -1,2 +1,23 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<!--ユーザーの詳細-->
+<div>
+  <h3><%= @user.name %></h3>
+  <%= image_tag @user.get_profile_image %>
+  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+</div>
+
+
+<% @books.each do |book| %>
+<div>
+  <%= link_to book_path(book.id) %>
+    <%= image_tag book.get_image %>
+  <% end %>
+  <p>ユーザー画像<%= image_tag @user.get_profile_image %></p>
+   <% if @user == current_user %>
+   <P><%= link_to "プロフィール編集", edit_user_path(@user) %></P>
+   <% end %>
+  <p>タイトル<%= @books.title %></p>
+  <p>opinion<%= @books.body %></p>
+  <p>ユーザーネーム<%= @user.name %></p>
+</div>
+
+<h1>users show</h1>
