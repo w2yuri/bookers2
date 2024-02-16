@@ -1,10 +1,11 @@
-<tbody>
+
 <% @book.each do |book| %>
- <tr>
+ <div>
+  <%= link_to book_path(book.id) do %>
    <%= image_tag book.get_image %>
-   <td>user<%= image_tag 'no_image2' %></td>
-   <td>title<%= book.title %></td>
-   <td>opinion<%= book.body %></td>
- </tr>
- </tbody>
+  <% end %>
+   <p>user<%= image_tag 'no_image2' %></p>
+   <p>title<%= book.title %></p>
+   <p>opinion<%= book.body %></p>
+ </div>
 <% end %>
